@@ -5,8 +5,13 @@
   "main": "build/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "ts-node-dev src/index.ts && node dist/app.js"
+    "start": "node build/index.js",
+    "postinstall": "tsc",
+    "watch-node": "nodemon build/index.js",
+    "watch-ts": "tsc -w",
+    "deploy": "git add . && git commit -m Heroku && git push heroku main"
   },
+  "engines": {"node": "14.9.0"},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/dan-gentile/google-book-backend.git"
