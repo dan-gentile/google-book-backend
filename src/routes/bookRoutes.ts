@@ -1,7 +1,23 @@
 import express, { Request, Response } from "express";
 import Book from "../models/books";
+import { config } from "dotenv";
+import axios from "axios";
 
 const router = express.Router();
+config();
+
+router.get("/api/google", async (req: Request, res: Response) => {
+  await axios
+    .get(
+      `https://www.googleapis.com/books/v1/volumes?q=${req.body.book}&key=${process.env.API_KEY}`
+    )
+    .then((response) => {
+      res.status(200).json(response.data);
+    })
+    .catch((err) => {
+      res.status(500).json(err);
+    });
+});
 
 router.get("/api/books", (req: Request, res: Response) => {
   Book.find()
