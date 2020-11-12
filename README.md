@@ -17,7 +17,7 @@
 
 ### General info
 
-This is a very simple express server that is paired with google-book-search repo. This server has only three routes, GET all books, PUT a single book and DELETE a single book. This database built with Mongoose is simply here to save books that have been received by using the Google Book Search API on the frontend. This server was built with Typescript and hosted on Heroku.
+This is a very simple express server that is paired with google-book-search repo. This server has only four routes, GET books from the Google Books API, GET all books, PUT a single book and DELETE a single book. This database built with Mongoose is simply here to save books that have been received by using the Google Book Search API. This server was built with Typescript and hosted on Heroku.
 
 To access the API <https://googlebooksearchbackend.herokuapp.com/api/books>
 ​
