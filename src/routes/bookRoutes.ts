@@ -6,10 +6,10 @@ import axios from "axios";
 const router = express.Router();
 config();
 
-router.get("/api/google", async (req: Request, res: Response) => {
+router.get("/api/google/:id", async (req: Request, res: Response) => {
   await axios
     .get(
-      `https://www.googleapis.com/books/v1/volumes?q=${req.body.book}&key=${process.env.API_KEY}`
+      `https://www.googleapis.com/books/v1/volumes?q=${req.params.id}&key=${process.env.API_KEY}`
     )
     .then((response) => {
       res.status(200).json(response.data);

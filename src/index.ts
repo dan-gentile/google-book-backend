@@ -2,10 +2,12 @@ import express from "express";
 import mongoose from "mongoose";
 import compression from "compression";
 import router from "./routes/bookRoutes";
+import cors from "cors";
 
 const app = express();
 const PORT = process.env.PORT || 8080;
 
+app.use(cors());
 app.use(compression());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
